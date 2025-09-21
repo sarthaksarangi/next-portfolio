@@ -2,14 +2,17 @@ import React from "react";
 
 export const HeroSection = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Animated Background Grid */}
       <div className="absolute inset-0 grid-background opacity-20">
         <div className="grid-overlay animate-pulse-slow"></div>
       </div>
 
-      {/* Floating Tech Icons */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Floating Tech Icons (hidden on mobile) */}
+      <div className="absolute inset-0 overflow-hidden hidden sm:block">
         {[
           { icon: "⚛️", delay: "0s", position: "top-20 left-1/4" },
           { icon: "🚀", delay: "2s", position: "top-40 right-1/3" },
@@ -27,39 +30,36 @@ export const HeroSection = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 pt-20 sm:pt-32 lg:pt-40">
         <div className="text-center space-y-6 lg:mt-20">
           {/* Name Section */}
-          <div className="relative inline-block px-4 sm:px-0">
+          <div className="relative inline-block px-2 sm:px-0">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur-xl opacity-75"></div>
-            <h1 className="relative text-5xl sm:text-7xl md:text-8xl lg:text-8xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 pb-2">
+            <h1 className="relative text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 pb-2 leading-tight">
               Sarthak Sarangi
             </h1>
           </div>
-          {/* <h1 className="text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500">
-            Sarthak Sarangi
-          </h1> */}
 
           {/* Role & Description */}
           <div className="space-y-4 sm:space-y-6 mt-6 sm:mt-8">
             <div className="flex flex-col items-center gap-4">
-              <div className="flex items-center gap-3">
-                <span className="h-[1px] w-8 sm:w-12 bg-blue-500"></span>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <span className="h-[1px] w-6 sm:w-12 bg-blue-500"></span>
 
-                <h2 className="text-xl md:text-2xl tracking-wide font-bold text-white">
+                <h2 className="text-lg sm:text-xl md:text-2xl tracking-wide font-bold text-white">
                   Full Stack Developer
                 </h2>
 
-                <span className="h-[1px] w-8 sm:w-12 bg-blue-500"></span>
+                <span className="h-[1px] w-6 sm:w-12 bg-blue-500"></span>
               </div>
-              <p className="text-base sm:text-lg text-gray-400 max-w-2xl px-4 sm:px-0">
+              <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl px-2 sm:px-0">
                 Crafting exceptional digital experiences with modern web
                 technologies
               </p>
             </div>
 
             {/* Tech Stack Pills */}
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-4 md:mb-8 px-2 sm:px-0">
               <span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs md:text-sm">
                 TypeScript
               </span>
@@ -76,12 +76,13 @@ export const HeroSection = () => {
                 AWS
               </span>
             </div>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 px-4 sm:px-0">
+
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-4 sm:mt-6 px-2 sm:px-0">
               {["Express", "PL/SQL", "Prisma ORM", "Mongo DB", "Java"].map(
                 (tech) => (
                   <span
                     key={tech}
-                    className="px-3 sm:px-4 py-1 sm:py-1.5 bg-[#1A1F2B] rounded-full text-sm font-medium text-gray-300 border border-[#2D333B] hover:border-blue-500/50 transition-colors"
+                    className="px-3 sm:px-4 py-1 sm:py-1.5 bg-[#1A1F2B] rounded-full text-xs sm:text-sm font-medium text-gray-300 border border-[#2D333B] hover:border-blue-500/50 transition-colors"
                   >
                     {tech}
                   </span>
@@ -91,13 +92,13 @@ export const HeroSection = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-8 sm:mt-12 px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-8 sm:mt-12 w-full px-2 sm:px-0">
             <a
               href="#work"
-              className="group relative inline-flex items-center justify-center"
+              className="group relative inline-flex items-center justify-center w-full sm:w-auto"
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition"></div>
-              <span className="relative px-6 sm:px-8 py-3 bg-[#161B22] rounded-full inline-flex items-center justify-center w-full sm:w-auto">
+              <span className="relative px-4 sm:px-6 py-2 sm:py-3 bg-[#161B22] rounded-full inline-flex items-center justify-center w-full sm:w-auto text-sm sm:text-base">
                 View My Work
                 <svg
                   className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
@@ -116,7 +117,7 @@ export const HeroSection = () => {
             </a>
             <a
               href="#contact"
-              className="px-6 sm:px-8 py-3 bg-[#21262D] rounded-full hover:bg-[#2D333B] transition-colors border border-[#2D333B] hover:border-gray-600 text-center"
+              className="px-4 sm:px-6 py-2 sm:py-3 bg-[#21262D] rounded-full hover:bg-[#2D333B] transition-colors border border-[#2D333B] hover:border-gray-600 text-center w-full sm:w-auto text-sm sm:text-base"
             >
               Get in Touch
             </a>
@@ -136,7 +137,7 @@ export const HeroSection = () => {
                 className="group relative p-2 sm:p-3 hover:text-blue-400 transition-colors"
                 aria-label={social.name}
               >
-                <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform inline-block">
+                <span className="text-lg sm:text-xl md:text-2xl group-hover:scale-110 transition-transform inline-block">
                   {social.icon}
                 </span>
               </a>
@@ -145,13 +146,13 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 inset-x-0 flex flex-col items-center animate-bounce">
-        <span className="text-gray-400 text-sm mb-2 text-center">
+      {/* Scroll Indicator (hidden on very small screens) */}
+      <div className="absolute bottom-4 inset-x-0 flex-col items-center animate-bounce hidden sm:flex">
+        <span className="text-gray-400 text-xs sm:text-sm mb-1 text-center">
           Scroll to explore
         </span>
         <svg
-          className="w-6 h-6 text-gray-400"
+          className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
