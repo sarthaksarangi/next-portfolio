@@ -1,12 +1,3 @@
-Got it ✅
-Let’s make this **your personal portfolio README** instead of a generic template one.
-I’ll tailor it for your site (`Sarthak Sarangi - Full Stack Developer Portfolio`) and remove template-specific stuff like sparse checkout.
-
-Here’s the revised **README.md**:
-
----
-
-````markdown
 # Sarthak Sarangi – Full Stack Developer Portfolio
 
 This is my personal developer portfolio built with **Next.js**, **TypeScript**, **TailwindCSS**, and **Framer Motion**.  
@@ -24,6 +15,7 @@ It showcases my skills, projects, and ways to get in touch with me.
 git clone https://github.com/sarthaksarangi/portfolio.git
 cd portfolio
 ```
+
 ````
 
 2. Install dependencies:
@@ -105,3 +97,4 @@ If you like my work:
 
 - Star the repository on GitHub ⭐
 - Share with others
+````
