@@ -2,21 +2,24 @@
 import React, { useState, useEffect } from "react";
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrollY(window.scrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Calculate opacity based on scroll position for smoother transitions
+  const backgroundOpacity = Math.min(scrollY / 100, 0.95);
+  const isScrolled = scrollY > 20;
+
   const navLinks = [
     { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
     { name: "Work", href: "#work" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
@@ -33,9 +36,15 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-[#0D1117]/95 backdrop-blur-md" : "bg-transparent"
-        }`}
+        className="fixed top-0 w-full z-50 transition-all duration-500 ease-out"
+        style={{
+          backgroundColor: `rgba(13, 17, 23, ${backgroundOpacity})`,
+          backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
+          borderBottom: `1px solid rgba(48, 54, 61, ${Math.min(
+            backgroundOpacity * 0.5,
+            0.3
+          )})`,
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
@@ -48,14 +57,14 @@ export const Navbar = () => {
               >
                 <div className="relative">
                   {/* Main logo square */}
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 ease-out">
                     <span className="text-white font-bold text-sm sm:text-lg select-none">
                       S
                     </span>
                   </div>
 
                   {/* Hover glow */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-40 transition-all duration-300 ease-out pointer-events-none"></div>
                 </div>
               </a>
             </div>
@@ -67,10 +76,10 @@ export const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative group"
+                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ease-out relative group"
                   >
                     {link.name}
-                    <span className="absolute inset-x-0 bottom-0 h-0.5  transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+                    <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
                   </a>
                 ))}
               </div>
@@ -82,8 +91,8 @@ export const Navbar = () => {
                 href="#contact"
                 className="group relative inline-flex items-center justify-center"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition"></div>
-                <span className="relative px-4 py-2 bg-[#161B22] rounded-full text-sm font-medium text-white">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-60 group-hover:opacity-90 transition-all duration-300 ease-out"></div>
+                <span className="relative px-5 py-2.5 bg-gray-900/90 hover:bg-gray-800/90 rounded-full text-sm font-medium text-white transition-all duration-300 ease-out border border-gray-700/50 group-hover:border-blue-500/30">
                   Hire Me
                 </span>
               </a>
@@ -93,26 +102,26 @@ export const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={toggleMobileMenu}
-                className="relative w-10 h-10 rounded-lg bg-[#21262D] hover:bg-[#2D333B] border border-[#30363D] transition-all duration-200 flex items-center justify-center group focus:outline-none"
+                className="relative w-10 h-10 rounded-lg bg-gray-800/60 hover:bg-gray-700/80 border border-gray-600/40 transition-all duration-300 ease-out flex items-center justify-center group focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                 aria-label="Toggle menu"
               >
                 <div className="w-5 h-5 flex flex-col justify-center items-center">
                   <span
-                    className={`block h-0.5 w-5 bg-gray-400 transition-all duration-300 ease-in-out transform origin-center ${
+                    className={`block h-0.5 w-5 bg-gray-300 transition-all duration-300 ease-out transform origin-center ${
                       isMobileMenuOpen
                         ? "rotate-45 translate-y-0.5"
                         : "translate-y-[-3px]"
                     }`}
                   ></span>
                   <span
-                    className={`block h-0.5 w-5 bg-gray-400 transition-all duration-300 ease-in-out ${
+                    className={`block h-0.5 w-5 bg-gray-300 transition-all duration-200 ease-out ${
                       isMobileMenuOpen
                         ? "opacity-0 scale-0"
                         : "opacity-100 scale-100"
                     }`}
                   ></span>
                   <span
-                    className={`block h-0.5 w-5 bg-gray-400 transition-all duration-300 ease-in-out transform origin-center ${
+                    className={`block h-0.5 w-5 bg-gray-300 transition-all duration-300 ease-out transform origin-center ${
                       isMobileMenuOpen
                         ? "-rotate-45 -translate-y-0.5"
                         : "translate-y-[3px]"
@@ -126,60 +135,42 @@ export const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`md:hidden transition-all duration-300 ease-out ${
+          className={`md:hidden transition-all duration-400 ease-out ${
             isMobileMenuOpen
               ? "max-h-96 opacity-100"
               : "max-h-0 opacity-0 pointer-events-none"
           } overflow-hidden`}
         >
           <div
-            className={`px-4 py-6 space-y-2 bg-[#0D1117]/98 backdrop-blur-lg border-t border-[#21262D]/50 transform transition-transform duration-300 ease-out ${
-              isMobileMenuOpen ? "translate-y-0" : "-translate-y-4"
-            }`}
+            className="px-4 py-6 space-y-2 bg-gray-900/95 backdrop-blur-xl border-t border-gray-700/30"
+            style={{
+              transform: isMobileMenuOpen
+                ? "translateY(0)"
+                : "translateY(-10px)",
+              transition: "transform 400ms ease-out",
+            }}
           >
             {navLinks.map((link, index) => (
               <div
                 key={link.name}
-                className={`transform transition-all duration-300 ease-out ${
-                  isMobileMenuOpen
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-4 opacity-0"
-                }`}
+                className="transform transition-all duration-300 ease-out"
                 style={{
-                  transitionDelay: isMobileMenuOpen ? `${index * 80}ms` : "0ms",
+                  opacity: isMobileMenuOpen ? 1 : 0,
+                  transform: isMobileMenuOpen
+                    ? "translateX(0)"
+                    : "translateX(-20px)",
+                  transitionDelay: isMobileMenuOpen ? `${index * 60}ms` : "0ms",
                 }}
               >
                 <a
                   href={link.href}
                   onClick={closeMobileMenu}
-                  className="group flex items-center justify-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-[#21262D]/50 transition-all duration-200 border border-transparent hover:border-[#30363D]"
+                  className="group flex items-center justify-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 ease-out border border-transparent hover:border-gray-600/40"
                 >
                   <span className="font-medium">{link.name}</span>
                 </a>
               </div>
             ))}
-
-            <div
-              className={`pt-4 mt-4 border-t border-[#21262D]/50 transform transition-all duration-300 ease-out ${
-                isMobileMenuOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-              }`}
-              style={{
-                transitionDelay: isMobileMenuOpen ? "400ms" : "0ms",
-              }}
-            >
-              <a
-                href="#contact"
-                onClick={closeMobileMenu}
-                className="group relative inline-flex items-center justify-center w-full"
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-60 group-hover:opacity-100 transition-opacity duration-200"></div>
-                <span className="relative px-6 py-3 bg-[#161B22] rounded-lg text-sm font-medium text-white w-full text-center border border-[#30363D] group-hover:border-blue-500/30 transition-colors duration-200">
-                  Hire Me
-                </span>
-              </a>
-            </div>
           </div>
         </div>
       </nav>
@@ -187,54 +178,13 @@ export const Navbar = () => {
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/20 z-40 md:hidden"
+          className="fixed inset-0 bg-black/30 z-40 md:hidden transition-opacity duration-400 ease-out"
           onClick={closeMobileMenu}
+          style={{
+            opacity: isMobileMenuOpen ? 1 : 0,
+          }}
         ></div>
       )}
     </>
   );
 };
-
-// Demo component to show the navbar in action
-export default function NavbarDemo() {
-  return (
-    <div className="bg-[#0D1117] min-h-screen">
-      <Navbar />
-
-      {/* Demo content to show navbar behavior */}
-      <div className="pt-20">
-        {/* Hero Section */}
-        <section
-          id="hero"
-          className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#161B22] to-[#0D1117]"
-        >
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              Sarthak Sarangi
-            </h1>
-            <p className="text-xl text-gray-400">Full Stack Developer</p>
-          </div>
-        </section>
-
-        {/* Demo sections */}
-        {["about", "work", "skills", "contact"].map((section) => (
-          <section
-            key={section}
-            id={section}
-            className="min-h-screen flex items-center justify-center bg-[#0D1117] border-t border-[#21262D]"
-          >
-            <div className="text-center">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 capitalize">
-                {section}
-              </h2>
-              <p className="text-lg text-gray-400">
-                This is the {section} section. Scroll to see the navbar in
-                action!
-              </p>
-            </div>
-          </section>
-        ))}
-      </div>
-    </div>
-  );
-}
