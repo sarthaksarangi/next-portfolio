@@ -3,9 +3,7 @@
 This is my personal developer portfolio built with **Next.js**, **TypeScript**, **TailwindCSS**, and **Framer Motion**.  
 It showcases my skills, projects, and ways to get in touch with me.
 
-👉 Live Website: [https://yourdomain.com](https://yourdomain.com) (replace with your deployed link)
-
----
+## 👉 Live Website: [https://sarthaksarangi.com](https://sarthaksarangi.com)
 
 ## 🚀 Getting Started (For Local Development)
 
@@ -15,8 +13,6 @@ It showcases my skills, projects, and ways to get in touch with me.
 git clone https://github.com/sarthaksarangi/portfolio.git
 cd portfolio
 ```
-
-````
 
 2. Install dependencies:
 
@@ -97,4 +93,3 @@ If you like my work:
 
 - Star the repository on GitHub ⭐
 - Share with others
-````
