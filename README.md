@@ -1,36 +1,32 @@
-# Web Developer Portfolio Template
+Got it ✅
+Let’s make this **your personal portfolio README** instead of a generic template one.
+I’ll tailor it for your site (`Sarthak Sarangi - Full Stack Developer Portfolio`) and remove template-specific stuff like sparse checkout.
 
-[Demo](https://www.devportfoliotemplates.com/portfolio-templates/web-developer)
+Here’s the revised **README.md**:
 
-## Getting Started
+---
 
-You have two options to get started with this template:
+````markdown
+# Sarthak Sarangi – Full Stack Developer Portfolio
 
-### Option 1: Using Git Sparse Checkout
+This is my personal developer portfolio built with **Next.js**, **TypeScript**, **TailwindCSS**, and **Framer Motion**.  
+It showcases my skills, projects, and ways to get in touch with me.
 
-If you want to clone only this specific template:
+👉 Live Website: [https://yourdomain.com](https://yourdomain.com) (replace with your deployed link)
+
+---
+
+## 🚀 Getting Started (For Local Development)
+
+1. Clone the repository:
 
 ```bash
-git clone --no-checkout https://github.com/devportfoliotemplates/devportfoliotemplates.git
-cd devportfoliotemplates
-git sparse-checkout init --cone
-git sparse-checkout set web-developer-portfolio-template
-git checkout
+git clone https://github.com/sarthaksarangi/portfolio.git
+cd portfolio
 ```
+````
 
-### Option 2: Direct Download
-
-You can download this template as a ZIP file:
-
-1. Visit [download-directory.github.io](https://download-directory.github.io/)
-2. Paste the URL of this portfolio folder: `https://github.com/devportfoliotemplates/devportfoliotemplates/tree/main/web-developer-portfolio-template`
-3. Download and extract the ZIP file
-
-### Running the Template
-
-Once you have the template:
-
-1. Install dependencies:
+2. Install dependencies:
 
 ```bash
 npm install
@@ -40,7 +36,7 @@ yarn install
 pnpm install
 ```
 
-2. Run the development server:
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -50,91 +46,62 @@ yarn dev
 pnpm dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the portfolio.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Customization
+---
 
-### Personal Information
+## 🛠️ Customization
 
-1. Update metadata in `app/layout.tsx`:
+### Personal Info
 
-   - Site title
-   - Description
-   - Open Graph metadata
-   - Favicon
+- Update metadata in `app/layout.tsx`
+  (site title, description, Open Graph tags, favicon).
+- Modify sections in `app/page.tsx` or inside `components/`:
 
-2. Modify content in `app/page.tsx`:
+  - **HeroSection** → name, role, tagline
+  - **SkillsSection** → tech stack
+  - **ProjectsSection** → featured projects
+  - **ContactSection** → email, social links
 
-   - Hero section
-   - About section
-   - Projects
-   - Contact information
+### Resume
 
-3. Replace assets:
-   - Replace images in the `public` directory
-   - Update social media icons
-   - Modify logo if needed
+- Place your `resume.pdf` inside the `public/` folder.
+- It will be available at `/resume.pdf` and linked in the Contact section.
 
 ### Styling
 
-1. Colors and Theme:
+- Update colors in `tailwind.config.js`
+- Global styles in `app/globals.css`
+- Typography (fonts, sizes, weights) also in `tailwind.config.js`
 
-   - Customize colors in `tailwind.config.js`
-   - Modify theme variables in `app/globals.css`
+---
 
-2. Typography:
+## 📦 Deployment
 
-   - Update font families in `tailwind.config.js`
-   - Modify text sizes and weights
+Easiest way: **Vercel**
 
-3. Layout:
-   - Adjust spacing and padding in component files
-   - Modify responsive breakpoints in `tailwind.config.js`
+1. Push your code to GitHub
+2. Go to [Vercel](https://vercel.com)
+3. Import your repo
+4. Vercel auto-detects Next.js → Deploy
 
-## Troubleshooting
+Your site will be live in minutes on a free `.vercel.app` domain.
+You can later connect a custom domain.
 
-### Common Issues
+---
 
-1. **Build Errors**
+## 📧 Contact
 
-   - Ensure all dependencies are installed
-   - Clear `.next` folder and node_modules
-   - Run `npm install` again
+- **Email:** [sarthaksarangi.dev@gmail.com](mailto:sarthaksarangi.dev@gmail.com)
+- **GitHub:** [github.com/sarthaksarangi](https://github.com/sarthaksarangi)
+- **LinkedIn:** [linkedin.com/in/sarthaksarangi](https://linkedin.com/in/sarthaksarangi)
+- **Twitter/X:** [x.com/sarthaksarangi\_](https://x.com/sarthaksarangi_)
 
-2. **Styling Issues**
+---
 
-   - Run `npm run build` to ensure TailwindCSS classes are generated
-   - Check for conflicting styles in `globals.css`
+## ⭐ Support
 
-3. **Image Loading**
-   - Verify images are in the correct format (PNG, JPG, WebP)
-   - Check image paths are correct
-   - Ensure images are in the `public` directory
+If you like my work:
 
-## Deployment
-
-Follow these steps to deploy your portfolio for free using GitHub and Vercel:
-
-1. Create a new GitHub repository
-
-2. Push your portfolio to GitHub
-
-3. Deploy with Vercel:
-   - Go to [Vercel](https://vercel.com)
-   - Sign up or log in with GitHub
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will automatically detect Next.js
-   - Click "Deploy"
-
-Your portfolio will be live in minutes with a free Vercel domain (e.g., `your-repo.vercel.app`). You can later add a custom domain in your Vercel project settings.
-
-## Support
-
-If you find these templates helpful, please consider:
-
-- Starring the repository ⭐
-- Sharing with other developers
-- [Buying me a coffee](https://www.buymeacoffee.com/andreiancu) ☕
-
-For issues and feature requests, please [create an issue](https://github.com/devportfoliotemplates/devportfoliotemplates/issues).
+- Star the repository on GitHub ⭐
+- Share with others
