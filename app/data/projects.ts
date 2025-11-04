@@ -85,7 +85,7 @@ export const projects: Project[] = [
       "ESLint",
       "Node.js",
     ],
-    liveUrl: "",
+    liveUrl: "https://user-payx.sarthaksarangi.com/",
     githubUrl: "https://github.com/sarthaksarangi/pay-x",
   },
   {
