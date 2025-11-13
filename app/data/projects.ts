@@ -85,6 +85,8 @@ export const projects: Project[] = [
       "ESLint",
       "Node.js",
     ],
+    imageUrl:
+      "https://res.cloudinary.com/dp3mmxvqb/image/upload/v1763058357/Screenshot_2025-11-13_at_11.46.10_PM_yzt921.png",
     liveUrl: "https://user-payx.sarthaksarangi.com/",
     githubUrl: "https://github.com/sarthaksarangi/pay-x",
   },
@@ -134,6 +136,8 @@ export const projects: Project[] = [
       "Hono.js",
       "Cloudinary",
     ],
+    imageUrl:
+      "https://res.cloudinary.com/dp3mmxvqb/image/upload/v1763064588/Screenshot_2025-11-14_at_1.25.58_AM_gncynz.png",
     liveUrl: "https://medium-blog-fe.vercel.app",
     githubUrl: "https://github.com/sarthaksarangi/medium-blog-fe",
   },

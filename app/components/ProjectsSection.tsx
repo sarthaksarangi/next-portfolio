@@ -603,7 +603,7 @@ export function ProjectsSection() {
                             ? "Project Screenshot"
                             : "System Architecture"}
                         </h4>
-                        <div className="aspect-[4/3] bg-black/50 rounded-lg overflow-hidden border border-gray-800/50 relative group/image">
+                        <div className=" aspect-auto  bg-black/50 rounded-lg overflow-hidden border border-gray-800/50 relative group/image">
                           {project.imageUrl ? (
                             <img
                               src={project.imageUrl}
