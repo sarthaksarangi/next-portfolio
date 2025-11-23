@@ -3,336 +3,7 @@
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 
-function ProjectArchitectureDiagram({ projectId }: { projectId: string }) {
-  if (projectId === "ecommerce-platform") {
-    return (
-      <svg className="w-full h-full" viewBox="0 0 400 300">
-        <g>
-          <rect
-            x="20"
-            y="20"
-            width="360"
-            height="40"
-            rx="4"
-            className="fill-blue-500/20 stroke-blue-500"
-            strokeWidth="1"
-          />
-          <text
-            x="200"
-            y="45"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Next.js Frontend (SSR + Client Components)
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="80"
-            width="170"
-            height="40"
-            rx="4"
-            className="fill-purple-500/20 stroke-purple-500"
-            strokeWidth="1"
-          />
-          <rect
-            x="210"
-            y="80"
-            width="170"
-            height="40"
-            rx="4"
-            className="fill-purple-500/20 stroke-purple-500"
-            strokeWidth="1"
-          />
-          <text
-            x="105"
-            y="105"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Product Service
-          </text>
-          <text
-            x="295"
-            y="105"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Order Service
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="140"
-            width="360"
-            height="30"
-            rx="4"
-            className="fill-teal-500/20 stroke-teal-500"
-            strokeWidth="1"
-          />
-          <text
-            x="200"
-            y="160"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Redis Cache Layer
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="190"
-            width="170"
-            height="40"
-            rx="4"
-            className="fill-blue-500/20 stroke-blue-500"
-            strokeWidth="1"
-          />
-          <rect
-            x="210"
-            y="190"
-            width="170"
-            height="40"
-            rx="4"
-            className="fill-purple-500/20 stroke-purple-500"
-            strokeWidth="1"
-          />
-          <text
-            x="105"
-            y="215"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Product DB (PostgreSQL)
-          </text>
-          <text
-            x="295"
-            y="215"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Order DB (MongoDB)
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="250"
-            width="360"
-            height="30"
-            rx="4"
-            className="fill-teal-500/20 stroke-teal-500"
-            strokeWidth="1"
-          />
-          <text
-            x="200"
-            y="270"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Elasticsearch Product Search
-          </text>
-        </g>
-        <g className="stroke-gray-600" strokeWidth="1">
-          <line x1="200" y1="60" x2="200" y2="80" />
-          <line x1="105" y1="120" x2="105" y2="140" />
-          <line x1="295" y1="120" x2="295" y2="140" />
-          <line x1="105" y1="170" x2="105" y2="190" />
-          <line x1="295" y1="170" x2="295" y2="190" />
-          <line x1="200" y1="230" x2="200" y2="250" />
-        </g>
-      </svg>
-    );
-  }
-
-  if (projectId === "analytics-platform") {
-    return (
-      <svg className="w-full h-full" viewBox="0 0 400 300">
-        <g>
-          <rect
-            x="20"
-            y="20"
-            width="110"
-            height="30"
-            rx="4"
-            className="fill-blue-500/20 stroke-blue-500"
-            strokeWidth="1"
-          />
-          <rect
-            x="145"
-            y="20"
-            width="110"
-            height="30"
-            rx="4"
-            className="fill-blue-500/20 stroke-blue-500"
-            strokeWidth="1"
-          />
-          <rect
-            x="270"
-            y="20"
-            width="110"
-            height="30"
-            rx="4"
-            className="fill-blue-500/20 stroke-blue-500"
-            strokeWidth="1"
-          />
-          <text
-            x="75"
-            y="40"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Web Events
-          </text>
-          <text
-            x="200"
-            y="40"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Mobile Events
-          </text>
-          <text
-            x="325"
-            y="40"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            API Events
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="80"
-            width="360"
-            height="40"
-            rx="4"
-            className="fill-purple-500/20 stroke-purple-500"
-            strokeWidth="1"
-          />
-          <text
-            x="200"
-            y="105"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Kafka Event Streaming
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="150"
-            width="170"
-            height="40"
-            rx="4"
-            className="fill-teal-500/20 stroke-teal-500"
-            strokeWidth="1"
-          />
-          <rect
-            x="210"
-            y="150"
-            width="170"
-            height="40"
-            rx="4"
-            className="fill-teal-500/20 stroke-teal-500"
-            strokeWidth="1"
-          />
-          <text
-            x="105"
-            y="175"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Stream Processing
-          </text>
-          <text
-            x="295"
-            y="175"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Batch Processing
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="220"
-            width="170"
-            height="30"
-            rx="4"
-            className="fill-blue-500/20 stroke-blue-500"
-            strokeWidth="1"
-          />
-          <rect
-            x="210"
-            y="220"
-            width="170"
-            height="30"
-            rx="4"
-            className="fill-purple-500/20 stroke-purple-500"
-            strokeWidth="1"
-          />
-          <text
-            x="105"
-            y="240"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            ClickHouse
-          </text>
-          <text
-            x="295"
-            y="240"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            Redis Time Series
-          </text>
-        </g>
-        <g>
-          <rect
-            x="20"
-            y="270"
-            width="360"
-            height="30"
-            rx="4"
-            className="fill-teal-500/20 stroke-teal-500"
-            strokeWidth="1"
-          />
-          <text
-            x="200"
-            y="290"
-            textAnchor="middle"
-            className="fill-gray-400 text-[12px]"
-          >
-            GraphQL API Layer
-          </text>
-        </g>
-        <g className="stroke-gray-600" strokeWidth="1">
-          <line x1="75" y1="50" x2="75" y2="80" />
-          <line x1="200" y1="50" x2="200" y2="80" />
-          <line x1="325" y1="50" x2="325" y2="80" />
-          <line x1="200" y1="120" x2="200" y2="150" />
-          <line x1="105" y1="190" x2="105" y2="220" />
-          <line x1="295" y1="190" x2="295" y2="220" />
-          <line x1="200" y1="250" x2="200" y2="270" />
-        </g>
-      </svg>
-    );
-  }
-
-  return (
-    <div className="flex items-center justify-center h-full text-gray-500 text-sm">
-      Add project screenshot or diagram here
-    </div>
-  );
-}
+//
 
 export function ProjectsSection() {
   return (
@@ -349,25 +20,19 @@ export function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
-          >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
               Featured Projects
             </span>
-          </motion.h2>
+          </h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.4 }}
             className="text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto"
           >
             A collection of full-stack applications showcasing modern
@@ -379,10 +44,10 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.4 }}
               className="group"
             >
               <div className="bg-gradient-to-br from-gray-900/60 via-gray-900/40 to-gray-900/60 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-gray-800/50 hover:border-gray-700/70 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10">
@@ -391,13 +56,9 @@ export function ProjectsSection() {
                     {/* Left Column - Content */}
                     <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
                       <div className="space-y-4">
-                        <motion.h3
-                          whileHover={{ x: 5 }}
-                          transition={{ duration: 0.2 }}
-                          className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
-                        >
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                           {project.title}
-                        </motion.h3>
+                        </h3>
                         <p className="text-gray-300 sm:text-gray-400 text-base sm:text-lg leading-relaxed">
                           {project.description}
                         </p>
@@ -405,21 +66,15 @@ export function ProjectsSection() {
 
                       {/* Project Links */}
                       {(project.liveUrl || project.githubUrl) && (
-                        <motion.div
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 }}
-                          className="flex flex-wrap gap-3 sm:gap-4"
-                        >
+                        <div className="flex flex-wrap gap-3 sm:gap-4">
                           {project.liveUrl && (
                             <motion.a
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="group/link relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-500/10 hover:bg-blue-500/20 rounded-lg text-blue-400 hover:text-blue-300 text-sm sm:text-base font-medium transition-all duration-300 border border-blue-500/30 hover:border-blue-500/50"
-                              whileHover={{ scale: 1.05, y: -2 }}
-                              whileTap={{ scale: 0.95 }}
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
                             >
                               <span>View Live</span>
                               <svg
@@ -443,8 +98,8 @@ export function ProjectsSection() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="group/link relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-gray-800/50 hover:bg-gray-800 rounded-lg text-gray-300 hover:text-white text-sm sm:text-base font-medium transition-all duration-300 border border-gray-700/50 hover:border-gray-600"
-                              whileHover={{ scale: 1.05, y: -2 }}
-                              whileTap={{ scale: 0.95 }}
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
                             >
                               <span>GitHub</span>
                               <svg
@@ -456,45 +111,29 @@ export function ProjectsSection() {
                               </svg>
                             </motion.a>
                           )}
-                        </motion.div>
+                        </div>
                       )}
 
                       {/* Technology Tags */}
                       {project.technologies &&
                         project.technologies.length > 0 && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
-                            className="flex flex-wrap gap-2 sm:gap-3"
-                          >
-                            {project.technologies.map((tech, idx) => (
+                          <div className="flex flex-wrap gap-2 sm:gap-3">
+                            {project.technologies.map((tech) => (
                               <motion.span
                                 key={tech}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.5 + idx * 0.05 }}
-                                whileHover={{ scale: 1.1, y: -2 }}
+                                whileHover={{ scale: 1.05 }}
                                 className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-800/60 hover:bg-gray-800 rounded-full text-xs sm:text-sm text-gray-300 border border-gray-700/50 hover:border-gray-600 transition-all duration-300"
                               >
                                 {tech}
                               </motion.span>
                             ))}
-                          </motion.div>
+                          </div>
                         )}
 
                       {/* Features Grid */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                         {project.frontendFeatures && (
-                          <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.5 }}
-                            className="space-y-3"
-                          >
+                          <div className="space-y-3">
                             <h4 className="text-sm sm:text-base font-semibold text-blue-400 flex items-center gap-2">
                               <span className="w-1 h-4 bg-blue-500 rounded-full" />
                               {project.frontendFeatures.title}
@@ -502,33 +141,23 @@ export function ProjectsSection() {
                             <ul className="space-y-2 text-sm sm:text-base text-gray-400">
                               {project.frontendFeatures.items.map(
                                 (item, idx) => (
-                                  <motion.li
+                                  <li
                                     key={idx}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.6 + idx * 0.05 }}
                                     className="flex items-start gap-2"
                                   >
                                     <span className="text-blue-400 mt-1.5">
                                       •
                                     </span>
                                     <span>{item}</span>
-                                  </motion.li>
+                                  </li>
                                 )
                               )}
                             </ul>
-                          </motion.div>
+                          </div>
                         )}
 
                         {project.backendFeatures && (
-                          <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.6 }}
-                            className="space-y-3"
-                          >
+                          <div className="space-y-3">
                             <h4 className="text-sm sm:text-base font-semibold text-purple-400 flex items-center gap-2">
                               <span className="w-1 h-4 bg-purple-500 rounded-full" />
                               {project.backendFeatures.title}
@@ -536,55 +165,38 @@ export function ProjectsSection() {
                             <ul className="space-y-2 text-sm sm:text-base text-gray-400">
                               {project.backendFeatures.items.map(
                                 (item, idx) => (
-                                  <motion.li
+                                  <li
                                     key={idx}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.7 + idx * 0.05 }}
                                     className="flex items-start gap-2"
                                   >
                                     <span className="text-purple-400 mt-1.5">
                                       •
                                     </span>
                                     <span>{item}</span>
-                                  </motion.li>
+                                  </li>
                                 )
                               )}
                             </ul>
-                          </motion.div>
+                          </div>
                         )}
                       </div>
 
                       {/* Achievements */}
                       {project.achievements && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.7 }}
-                          className="space-y-3 p-4 sm:p-5 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-xl border border-teal-500/20"
-                        >
+                        <div className="space-y-3 p-4 sm:p-5 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-xl border border-teal-500/20">
                           <h4 className="text-sm sm:text-base font-semibold text-teal-400 flex items-center gap-2">
                             <span className="w-1 h-4 bg-teal-500 rounded-full" />
                             {project.achievements.title}
                           </h4>
                           <ul className="space-y-2 text-sm sm:text-base text-gray-300">
                             {project.achievements.items.map((item, idx) => (
-                              <motion.li
-                                key={idx}
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.8 + idx * 0.05 }}
-                                className="flex items-start gap-2"
-                              >
+                              <li key={idx} className="flex items-start gap-2">
                                 <span className="text-teal-400 mt-1.5">✓</span>
                                 <span>{item}</span>
-                              </motion.li>
+                              </li>
                             ))}
                           </ul>
-                        </motion.div>
+                        </div>
                       )}
                     </div>
 
@@ -593,7 +205,7 @@ export function ProjectsSection() {
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.3, duration: 0.6 }}
+                      transition={{ duration: 0.4 }}
                       className="order-1 lg:order-2"
                     >
                       <div className="relative bg-gradient-to-br from-black/40 to-black/60 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 sm:p-6 border border-gray-800/50 overflow-hidden group/visual">
@@ -611,11 +223,7 @@ export function ProjectsSection() {
                               className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110"
                             />
                           ) : (
-                            <div className="w-full h-full p-2 sm:p-4">
-                              <ProjectArchitectureDiagram
-                                projectId={project.id}
-                              />
-                            </div>
+                            <></>
                           )}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500" />
                         </div>

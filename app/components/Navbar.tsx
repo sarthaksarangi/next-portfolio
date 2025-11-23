@@ -1,22 +1,30 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export const Navbar = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Only update boolean state, not continuous values
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Calculate opacity based on scroll position for smoother transitions
-  const backgroundOpacity = Math.min(scrollY / 100, 0.95);
-  const isScrolled = scrollY > 20;
+  // Calculate opacity using CSS custom property instead of JS
+  const backgroundOpacity = isScrolled ? 0.95 : 0;
 
   const navLinks = [
     { name: "Home", href: "#hero" },

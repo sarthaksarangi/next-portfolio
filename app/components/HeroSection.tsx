@@ -12,8 +12,8 @@ export const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.08, // Increase to 0.08-0.1
+        delayChildren: 0.1,
       },
     },
   };
@@ -359,6 +359,11 @@ export const HeroSection = () => {
           <motion.div
             variants={itemVariants}
             className="order-1 lg:order-2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] xl:h-[700px] min-h-[400px] flex items-center justify-center relative w-full"
+            style={{
+              transformStyle: "preserve-3d",
+              perspective: "1000px",
+              willChange: "transform",
+            }}
           >
             <TechIllustration />
           </motion.div>
