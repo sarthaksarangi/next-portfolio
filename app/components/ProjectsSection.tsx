@@ -219,6 +219,8 @@ export function ProjectsSection() {
                         <div className=" aspect-auto  bg-black/50 rounded-lg overflow-hidden border border-gray-800/50 relative group/image">
                           {project.imageUrl ? (
                             <Image
+                              width={500}
+                              height={200}
                               src={project.imageUrl}
                               alt={project.title}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110"
