@@ -220,7 +220,7 @@ export function ProjectsSection() {
                           {project.imageUrl ? (
                             <Image
                               width={500}
-                              height={200}
+                              height={500}
                               src={project.imageUrl}
                               alt={project.title}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110"

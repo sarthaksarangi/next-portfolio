@@ -4,15 +4,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { TechIllustration } from "./TexhIllustration";
 
-// 3D Abstract Tech Illustration Component
-
 export const HeroSection = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08, // Increase to 0.08-0.1
+        staggerChildren: 0.1,
         delayChildren: 0.1,
       },
     },
@@ -30,84 +28,21 @@ export const HeroSection = () => {
     },
   };
 
-  const floatingIcons = [
-    { icon: "⚛️", delay: "0s", position: { top: "8%", left: "8%" } },
-    { icon: "🚀", delay: "1.5s", position: { top: "12%", right: "12%" } },
-    { icon: "💻", delay: "0.5s", position: { bottom: "20%", left: "10%" } },
-    { icon: "🔥", delay: "2s", position: { bottom: "15%", right: "10%" } },
-    { icon: "⚡", delay: "1s", position: { top: "40%", left: "3%" } },
-    { icon: "🎯", delay: "2.5s", position: { top: "45%", right: "5%" } },
-  ];
-
   return (
     <div
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0d1117] via-[#0a0d14] to-[#0d1117]"
     >
-      {/* Enhanced Animated Background Grid */}
-      <div className="absolute inset-0 grid-background opacity-[0.12] md:opacity-[0.18]">
-        <div className="grid-overlay animate-pulse-slow"></div>
-      </div>
+      {/* Static Background Grid - removed animation */}
+      <div className="absolute inset-0 grid-background opacity-[0.12] md:opacity-[0.18]" />
 
-      {/* Gradient Orbs for visual depth */}
+      {/* Static Gradient Orbs - removed animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/15 rounded-full blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl" />
       </div>
 
-      {/* Floating Tech Icons (hidden on mobile, visible on tablet+) */}
-      <div className="absolute inset-0 overflow-hidden hidden md:block pointer-events-none">
-        {floatingIcons.map((item, index) => (
-          <motion.div
-            key={index}
-            className="absolute opacity-25 md:opacity-35"
-            style={item.position}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{
-              opacity: [0.2, 0.4, 0.2],
-              y: [0, -30, 0],
-              rotate: [0, 10, -10, 0],
-              scale: [1, 1.15, 1],
-            }}
-            transition={{
-              duration: 8,
-              delay: index * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <span className="text-3xl md:text-4xl lg:text-5xl block filter drop-shadow-lg">
-              {item.icon}
-            </span>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Hero Content - Split Layout */}
+      {/* Hero Content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -117,24 +52,12 @@ export const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center w-full">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-6 sm:space-y-8 md:space-y-10 order-2 lg:order-1">
-            {/* Name Section with enhanced gradient */}
+            {/* Name Section - simplified glow */}
             <motion.div
               variants={itemVariants}
               className="relative inline-block"
             >
-              {/* Animated gradient glow */}
-              <motion.div
-                className="absolute -inset-2 sm:-inset-3 md:-inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-2xl md:blur-3xl opacity-70"
-                animate={{
-                  opacity: [0.5, 0.8, 0.5],
-                  scale: [1, 1.08, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-2xl md:blur-3xl opacity-50" />
               <h1
                 className="relative font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-100 to-gray-300 leading-[1.1] sm:leading-[1.15] md:leading-[1.2] px-2 sm:px-4 drop-shadow-2xl"
                 style={{ fontSize: "clamp(1.5rem, 6vw, 4.2rem)" }}
@@ -150,21 +73,11 @@ export const HeroSection = () => {
             >
               <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-5">
                 <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                  <motion.span
-                    className="h-[2px] sm:h-[2.5px] w-8 sm:w-12 md:w-20 bg-gradient-to-r from-transparent via-blue-500 to-blue-500"
-                    initial={{ width: 0 }}
-                    animate={{ width: ["0px", "80px", "80px"] }}
-                    transition={{ duration: 1.2, delay: 0.8 }}
-                  />
+                  <span className="h-[2px] sm:h-[2.5px] w-12 sm:w-16 md:w-20 bg-gradient-to-r from-transparent via-blue-500 to-blue-500" />
                   <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-wide font-bold text-white whitespace-nowrap drop-shadow-lg">
                     Full Stack Developer
                   </h2>
-                  <motion.span
-                    className="h-[2px] sm:h-[2.5px] w-8 sm:w-12 md:w-20 bg-gradient-to-l from-transparent via-blue-500 to-blue-500"
-                    initial={{ width: 0 }}
-                    animate={{ width: ["0px", "80px", "80px"] }}
-                    transition={{ duration: 1.2, delay: 0.8 }}
-                  />
+                  <span className="h-[2px] sm:h-[2.5px] w-12 sm:w-16 md:w-20 bg-gradient-to-l from-transparent via-blue-500 to-blue-500" />
                 </div>
                 <p className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-200 sm:text-gray-300 max-w-2xl lg:max-w-none mx-auto lg:mx-0 px-4 sm:px-6 lg:px-0 leading-relaxed font-light">
                   Crafting exceptional digital experiences with modern web
@@ -250,17 +163,7 @@ export const HeroSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <motion.div
-                  className="absolute -inset-1 sm:-inset-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-lg sm:blur-xl opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                  animate={{
-                    opacity: [0.7, 0.9, 0.7],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
+                <div className="absolute -inset-1 sm:-inset-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-lg sm:blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
                 <span className="relative px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-[#161B22]/90 hover:bg-[#1a2028] rounded-full inline-flex items-center justify-center w-full sm:w-auto text-sm sm:text-base md:text-lg font-bold text-white group-hover:text-gray-100 transition-colors duration-300 border border-gray-800/60 backdrop-blur-sm shadow-xl">
                   View My Work
                   <svg
@@ -289,7 +192,7 @@ export const HeroSection = () => {
               </motion.a>
             </motion.div>
 
-            {/* Social Links with better icons */}
+            {/* Social Links */}
             <motion.div
               variants={itemVariants}
               className="flex justify-center lg:justify-start gap-5 sm:gap-6 md:gap-8 mt-10 sm:mt-12 md:mt-14"
@@ -345,7 +248,7 @@ export const HeroSection = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.2 + index * 0.1 }}
-                  whileHover={{ scale: 1.15, y: -4, rotate: [0, -5, 5, 0] }}
+                  whileHover={{ scale: 1.15, y: -4 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-purple-500/10 to-pink-500/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -359,18 +262,13 @@ export const HeroSection = () => {
           <motion.div
             variants={itemVariants}
             className="order-1 lg:order-2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] xl:h-[700px] min-h-[400px] flex items-center justify-center relative w-full"
-            style={{
-              transformStyle: "preserve-3d",
-              perspective: "1000px",
-              willChange: "transform",
-            }}
           >
             <TechIllustration />
           </motion.div>
         </div>
       </motion.div>
 
-      {/* Enhanced Scroll Indicator */}
+      {/* Scroll Indicator - static animation */}
       <motion.div
         className="absolute bottom-8 sm:bottom-10 md:bottom-12 inset-x-0 flex flex-col items-center gap-3"
         initial={{ opacity: 0, y: -10 }}
@@ -380,17 +278,11 @@ export const HeroSection = () => {
         <span className="text-gray-400 text-xs sm:text-sm font-medium">
           Scroll to explore
         </span>
-        <motion.svg
-          className="w-6 h-6 sm:w-7 sm:h-7 text-gray-400"
+        <svg
+          className="w-6 h-6 sm:w-7 sm:h-7 text-gray-400 animate-bounce"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
-          animate={{ y: [0, 10, 0] }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
         >
           <path
             strokeLinecap="round"
@@ -398,7 +290,7 @@ export const HeroSection = () => {
             strokeWidth={2.5}
             d="M19 14l-7 7m0 0l-7-7m7 7V3"
           />
-        </motion.svg>
+        </svg>
       </motion.div>
     </div>
   );
