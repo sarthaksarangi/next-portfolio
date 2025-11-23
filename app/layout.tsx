@@ -15,22 +15,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Sarthak Sarangi - Software Engineer",
   description:
-    "Welcome to my portfolio! I am a passionate Software Engineer creating modern, responsive, and user-friendly websites. Specializing in frontend technologies and interactive user interfaces, I build engaging web experiences that make an impact.",
+    "Portfolio of Sarthak Sarangi, a Software Engineer specializing in React, Next.js, TypeScript, and modern frontend development.",
   keywords: [
     "Software Engineer",
     "Frontend Developer",
     "React Developer",
-    "Next.js",
+    "Next.js Developer",
     "JavaScript",
     "TypeScript",
-    "HTML5",
-    "CSS3",
+    "Full Stack Developer",
+    "Web Developer India",
     "Responsive Design",
     "UI/UX",
     "Web Accessibility",
     "Performance Optimization",
     "Modern Web Development",
-    "Progressive Web Apps",
     "Sarthak Sarangi",
   ],
   authors: [{ name: "Sarthak Sarangi" }],
@@ -38,12 +37,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sarthak Sarangi - Software Engineer Portfolio",
     description:
-      "Passionate Software Engineer crafting modern and engaging digital experiences. Explore my projects and web development expertise.",
-    url: "https://your-domain.com",
+      "Explore the work of Software Engineer Sarthak Sarangi — building modern, fast, and user-focused web experiences.",
+    url: "https://sarthaksarangi.com",
     siteName: "Sarthak Sarangi - Portfolio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://sarthaksarangi.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Sarthak Sarangi - Software Engineer Portfolio",
@@ -56,9 +55,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sarthak Sarangi - Software Engineer",
     description:
-      "Passionate Software Engineer crafting modern and engaging digital experiences. Explore my projects and web development expertise.",
-    creator: "@yourusername",
-    images: ["/og-image.jpg"],
+      "Explore my projects and expertise in modern frontend and web engineering.",
+    creator: "@Ysarthaksatangi_",
+    images: ["https://sarthaksarangi.com/og-image.png"],
   },
   robots: {
     index: true,

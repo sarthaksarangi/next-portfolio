@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
+import Image from "next/image";
 
 //
 
@@ -41,7 +42,7 @@ export function ProjectsSection() {
         </motion.div>
 
         <div className="space-y-12 sm:space-y-16 md:space-y-20">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -217,7 +218,7 @@ export function ProjectsSection() {
                         </h4>
                         <div className=" aspect-auto  bg-black/50 rounded-lg overflow-hidden border border-gray-800/50 relative group/image">
                           {project.imageUrl ? (
-                            <img
+                            <Image
                               src={project.imageUrl}
                               alt={project.title}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110"
